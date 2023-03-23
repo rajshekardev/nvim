@@ -14,6 +14,9 @@ vim.opt.termguicolors = true
 -- empty setup using defaults
 require("nvim-tree").setup()
 
+-- mason initialized
+require("mason").setup()
+
 -- OR setup with some options
 require("nvim-tree").setup({
 	sort_by = "case_sensitive",
@@ -38,7 +41,7 @@ vim.api.nvim_set_keymap("n", "<Leader>ef", ":NvimTreeFocus <CR>", { noremap = tr
 vim.api.nvim_set_keymap("n", "<Leader>lazy", ":Lazy<CR>", { noremap = true })
 
 -- Mason Key map
-vim.api.nvim_set_keymap("n", "<Leader>lsp", ":Lazy<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<Leader>lsp", ":<CR>", { noremap = true })
 
 -- leader n for absolute numbers
 vim.api.nvim_set_keymap("n", "<Leader>n", ":set number!<CR>", { noremap = true })
