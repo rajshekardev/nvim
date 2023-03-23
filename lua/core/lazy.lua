@@ -25,10 +25,7 @@ require("lazy").setup({
 			  colorscheme = "rose-pine",
 			},
 		  },
-	
-		--- treesitter
-		{ "nvim-treesitter/nvim-treesitter" },
-	
+		  
 		-- file explorer
 		{
 			"nvim-tree/nvim-tree.lua",
