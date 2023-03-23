@@ -11,17 +11,6 @@ vim.g.loaded_netrwPlugin = 1
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
 
--- mason initialized
-require("mason").setup({
-    ui = {
-        icons = {
-            package_installed = "✓",
-            package_pending = "➜",
-            package_uninstalled = "✗"
-        }
-    }
-})
-
 -- OR setup with some options
 require("nvim-tree").setup({
 	sort_by = "case_sensitive",
@@ -32,8 +21,6 @@ require("nvim-tree").setup({
 		dotfiles = true,
 	},
 })
-
-
 -- nvim-tree toggle keymap
 vim.api.nvim_set_keymap("n", "<Leader>e", ":NvimTreeToggle <CR>", { noremap = true })
 

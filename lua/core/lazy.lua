@@ -12,10 +12,21 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	--lsp mason
-	{"williamboman/mason.nvim"},
+	{
+		'VonHeikemen/lsp-zero.nvim',
+		branch = 'v2.x',
+		dependencies = {
+			-- LSP Support
+			{'neovim/nvim-lspconfig'},             -- Required
+			{'williamboman/mason.nvim'},           -- Optional
+			{'williamboman/mason-lspconfig.nvim'}, -- Optional
 
-
+			-- Autocompletion
+			{'hrsh7th/nvim-cmp'},     -- Required
+			{'hrsh7th/cmp-nvim-lsp'}, -- Required
+			{'L3MON4D3/LuaSnip'},     -- Required
+		}
+	},
 	-- color scheme
 	{ "rose-pine/neovim", name = "rose-pine" },
 
@@ -44,7 +55,14 @@ require("lazy").setup({
 	{
 		'nvim-telescope/telescope.nvim', tag = '0.1.1',
 		-- or                              , branch = '0.1.1',
-		dependencies = { 'nvim-lua/plenary.nvim' }
+		dependencies = {
+			'nvim-lua/plenary.nvim',
+			"nvim-telescope/telescope-fzf-native.nvim",
+			build = "make",
+			config = function()
+				require("telescope").load_extension("fzf")
+			end,
+		}
 	},
 
 	-- nvim-treesitter 
@@ -61,3 +79,14 @@ require("lazy").setup({
 })
 
 -- Set color scheme
+vim.cmd.colorscheme('rose-pine')
+
+-- lsp config
+local lsp = require('lsp-zero').preset({})
+
+lsp.on_attach(function(client, bufnr)
+	lsp.default_keymaps({buffer = bufnr})
+end)
+
+lsp.setup()
+
