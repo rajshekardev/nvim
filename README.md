@@ -3,7 +3,7 @@
 My nvim config
 
 uses lazy nvim by folke for plugin manager
-[folke/lazy.nvim] https://github.com/folke/lazy.nvim
+folke/lazy.nvim https://github.com/folke/lazy.nvim
 
 plugins used 
   mason for lsp
