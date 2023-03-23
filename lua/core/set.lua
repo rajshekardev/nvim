@@ -11,11 +11,16 @@ vim.g.loaded_netrwPlugin = 1
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
 
--- empty setup using defaults
-require("nvim-tree").setup()
-
 -- mason initialized
-require("mason").setup()
+require("mason").setup({
+    ui = {
+        icons = {
+            package_installed = "✓",
+            package_pending = "➜",
+            package_uninstalled = "✗"
+        }
+    }
+})
 
 -- OR setup with some options
 require("nvim-tree").setup({
@@ -41,7 +46,7 @@ vim.api.nvim_set_keymap("n", "<Leader>ef", ":NvimTreeFocus <CR>", { noremap = tr
 vim.api.nvim_set_keymap("n", "<Leader>lazy", ":Lazy<CR>", { noremap = true })
 
 -- Mason Key map
-vim.api.nvim_set_keymap("n", "<Leader>lsp", ":<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<Leader>lsp", ":Mason<CR>", { noremap = true })
 
 -- leader n for absolute numbers
 vim.api.nvim_set_keymap("n", "<Leader>n", ":set number!<CR>", { noremap = true })
