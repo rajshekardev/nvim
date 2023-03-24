@@ -1,3 +1,4 @@
+-- @format
 vim.g.mapleader = " "
 vim.opt.relativenumber = true
 vim.opt.number = true
@@ -14,7 +15,7 @@ vim.opt.termguicolors = true
 -- OR setup with some options
 require("nvim-tree").setup({
 	sort_by = "case_sensitive",
-	renderer = {
+			renderer = {
 		group_empty = true,
 	},
 	filters = {
@@ -48,7 +49,8 @@ vim.api.nvim_set_keymap("n", "<Leader>rn", ":set relativenumber!<CR>", { noremap
 -- leader ev to open config: 
 vim.api.nvim_set_keymap("n", "<Leader>ev", ":e $MYVIMRC<CR>", { noremap = true })
 
-vim.api.nvim_set_keymap("n", "<Leader>f", "gg=G", { noremap = true})
+-- leade f to format code with Presttier & leadper P to manualyy format
+vim.api.nvim_set_keymap("n", "<Leader>f", ":Prettier", { noremap = true})
 
 -- telescope - is a fuzzy finder for neovim 
 local builtin = require('telescope.builtin')
@@ -56,4 +58,7 @@ vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+
+--Lua:
+vim.api.nvim_set_keymap('n', '<leader>mm', [[<Cmd>lua require('material.functions').toggle_style()<CR>]], { noremap = true, silent = true })
 
