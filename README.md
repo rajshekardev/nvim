@@ -1,7 +1,7 @@
 <h1 align="center">
   <img src="https://raw.githubusercontent.com/neovim/neovim.github.io/master/logos/neovim-logo-300x87.png" alt="Neovim">
 
-  <a href="https://neovim.io/doc/">Documentation</a> |
+  <a href="https://neovim.io/doc/">Documentation</a> | Thanks to Neovim community
 </h1>
 
 My personal nvim config
@@ -18,5 +18,3 @@ plugins used
 colorschemes available
   - [X] [Rose Pine](https://rosepinetheme.com/)
   - [X] [Material](https://github.com/marko-cerovac/material.nvim)
-
-
