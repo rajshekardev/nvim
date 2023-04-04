@@ -36,19 +36,13 @@ require("lazy").setup({
 	},
 	{ "prettier/vim-prettier" },
 	-- color scheme
-	{"navarasu/onedark.nvim"},
-	
-	{"marko-cerovac/material.nvim"},
-
 	{ "rose-pine/neovim", name = "rose-pine" },
-
 	{
 		"LazyVim/LazyVim",
 		opts = {
 			colorscheme = "rose-pine",
 		},
 	},
-
 	-- file explorer
 	{
 		"nvim-tree/nvim-tree.lua",
@@ -62,7 +56,6 @@ require("lazy").setup({
 			require("nvim-tree").setup({})
 		end,
 	},
-
 	-- nvim-telescope
 	{
 		"nvim-telescope/telescope.nvim",
@@ -77,7 +70,6 @@ require("lazy").setup({
 			end,
 		},
 	},
-
 	-- nvim-treesitter
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 
@@ -96,23 +88,7 @@ require("lazy").setup({
 
 
 -- Set color scheme
---vim.cmd.colorscheme("rose-pine")
-
--- Lua onedark
-
---require('onedark').setup {
---    style = 'darker'
---}
---require('onedark').load()
-
---material theme with high contrast
-require('lualine').setup {
-  options = {
-	  theme = 'material-nvim',
-	  icons_enabled = true,
-  }
-}
-vim.g.material_style = "deep ocean"
+vim.cmd.colorscheme("rose-pine")
 
 -- lsp zero defaults
 local lsp = require('lsp-zero').preset({
