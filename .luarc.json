@@ -1,0 +1,8 @@
+{
+    "diagnostics.globals": [
+        "vim",
+        "MiniIcons",
+        "plugins",
+        "run_build"
+    ]
+}

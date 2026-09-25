@@ -57,6 +57,14 @@ vim.lsp.config("*", {
   capabilities = capabilities,
 })
 
+vim.lsp.config("lua_ls", {
+  settings = {
+    Lua = {
+      diagnostics = { global = { "vim" } }
+    }
+  }
+})
+
 vim.lsp.enable({
   "tsgo",
   "gopls",

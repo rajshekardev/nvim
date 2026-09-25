@@ -8,7 +8,7 @@ end, { nargs = "+", desc = "Add plugins (:PackDel user/repo github) "})
 
 vim.api.nvim_create_user_command("PackUpdate", function (opts)
     if opts.args:match("%S") then
-        local plugsin = vim.split(opts.args, "%s+", {trimepty = true}) 
+        local plugins = vim.split(opts.args, "%s+", {trimepty = true})
         vim.pack.update(plugins)
     else
         vim.pack.update()
