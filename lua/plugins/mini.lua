@@ -68,12 +68,20 @@ MiniSnippets.setup({
 
 MiniSnippets.start_lsp_server({ match = false })
 
+local function disable_snippet_highlights()
+    for _, group in ipairs({
+        "MiniSnippetsCurrent",
+        "MiniSnippetsCurrentReplace",
+        "MiniSnippetsFinal",
+        "MiniSnippetsUnvisited",
+        "MiniSnippetsVisited",
+    }) do
+        vim.api.nvim_set_hl(0, group, { link = "Normal" })
+    end
+end
+
+disable_snippet_highlights()
+
 vim.api.nvim_create_autocmd("ColorScheme", {
-    callback = function()
-        vim.api.nvim_set_hl(0, "MiniSnippetsCurrent", {})
-        vim.api.nvim_set_hl(0, "MiniSnippetsCurrentReplace", {})
-        vim.api.nvim_set_hl(0, "MiniSnippetsFinal", {})
-        vim.api.nvim_set_hl(0, "MiniSnippetsUnvisited", {})
-        vim.api.nvim_set_hl(0, "MiniSnippetsVisited", {})
-    end,
+    callback = disable_snippet_highlights,
 })
