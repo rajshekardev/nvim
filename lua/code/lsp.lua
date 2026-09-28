@@ -66,7 +66,7 @@ vim.lsp.config("lua_ls", {
 })
 
 vim.lsp.enable({
-  "tsgo",
+  "tsc",
   "gopls",
   "ols",
   "lua_ls",

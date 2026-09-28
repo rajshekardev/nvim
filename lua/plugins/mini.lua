@@ -35,14 +35,14 @@ Extra.setup()
 vim.keymap.set("n", "<leader>fs", function() MiniPick.builtin.grep_live() end, { desc = "Live grep" })
 vim.keymap.set("n", "<leader>ff", function() MiniPick.builtin.files() end, {desc = "Mini File picker" })
 vim.keymap.set("n", "<leader>fh", function() MiniPick.builtin.help() end, {desc = "Mini help"})
+vim.keymap.set("n", "<leader>fk", function() Extra.pickers.keymaps() end, { desc = "Search keymaps"})
+vim.keymap.set("n", "<leader>dd", function() Extra.pickers.diagnostic() end, { desc = "Mini diagnostics"})
 
 if vim.g.have_nerd_font then
   require('mini.icons').setup()
   MiniIcons.mock_nvim_web_devicons()
 end
 
-vim.keymap.set("n", "<leader>dd", function() Extra.pickers.diagnostic() end, { desc = "Mini diagnostics"})
-vim.keymap.set("n", "<leader>fk", function() Extra.pickers.keymaps() end, { desc = "Search keymaps"})
 
 Completion.setup({
     lsp_completion = {

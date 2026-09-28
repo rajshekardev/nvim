@@ -24,7 +24,6 @@ vim.keymap.set("n", "<N>", "Nzzzv", { desc = "center cusror when search previous
 
 -- global replace in buffer
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "global replace word under cursor"})
-vim.keymap.set("n", "<leader>X", "<cmd>!chmod +x %<CR>", {desc = "make files executable", silent = true })
 
 vim.keymap.set("n", "<leader>u", function()
     vim.cmd.packadd("nvim.undotree")
@@ -52,4 +51,12 @@ vim.keymap.set("n", "<C-S-l>", "<C-w>L", { desc = "Move window to the right" })
 vim.keymap.set("n", "<C-S-j>", "<C-w>J", { desc = "Move window to the lower" })
 vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
 
+vim.keymap.set("n", "<leader>'", ":marks<CR>", {desc = "Show Marks"})
+vim.keymap.set("n", "<leader>dm", function()
+  local mark = vim.fn.getcharstr()
+
+  if mark ~= "" then
+    vim.cmd("delmarks " .. mark)
+  end
+end, { desc = "Delete mark" })
 
