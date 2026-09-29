@@ -33,6 +33,7 @@ MiniPick.setup()
 Extra.setup()
 
 vim.keymap.set("n", "<leader>fs", function() MiniPick.builtin.grep_live() end, { desc = "Live grep" })
+vim.keymap.set("n", "<leader>fb", function() MiniPick.builtin.buffers() end, { desc = "Live grep" })
 vim.keymap.set("n", "<leader>ff", function() MiniPick.builtin.files() end, {desc = "Mini File picker" })
 vim.keymap.set("n", "<leader>fh", function() MiniPick.builtin.help() end, {desc = "Mini help"})
 vim.keymap.set("n", "<leader>fk", function() Extra.pickers.keymaps() end, { desc = "Search keymaps"})
@@ -85,3 +86,15 @@ disable_snippet_highlights()
 vim.api.nvim_create_autocmd("ColorScheme", {
     callback = disable_snippet_highlights,
 })
+
+vim.keymap.set("n", "<leader>fy", function()
+  local text = vim.fn.getreg('"')
+
+  if text == "" then
+    return
+  end
+
+  MiniPick.builtin.grep_live(nil, {
+    pattern = text,
+  })
+end, { desc = "Grep yanked text" })
